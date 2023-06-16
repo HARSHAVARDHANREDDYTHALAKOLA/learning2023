@@ -1,4 +1,4 @@
-[3:32 PM, 6/14/2023] naguri Liyaz Cse: #include <stdio.h>
+ #include <stdio.h>
 
 int bit_operations(int num, int oper_type) {
     int result = num;
@@ -30,7 +30,7 @@ int main() {
     
     return 0;
 }
-[3:42 PM, 6/14/2023] naguri Liyaz Cse: #include <stdio.h>
+#include <stdio.h>
 int main() {
    // printf() displays the string inside quotation
    printf("Hello, World!");
