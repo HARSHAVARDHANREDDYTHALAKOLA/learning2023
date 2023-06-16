@@ -1,16 +1,13 @@
 #include <stdio.h>
 
-void printExponent(double x) {
-    unsigned long long *ptr = (unsigned long long *)&x;
+void printExponent(double num) {
+    unsigned long long* ptr = (unsigned long long*)&num;
     unsigned long long exponent = (*ptr >> 52) & 0x7FF;
 
-    // Print hexadecimal format
-    printf("Hexadecimal: 0x%llX\n", exponent);
-
-    // Print binary format
-    printf("Binary: 0b");
+    printf("Exponent in hexadecimal: 0x%llX\n", exponent);
+    printf("Exponent in binary: 0b");
     for (int i = 10; i >= 0; i--) {
-        printf("%d", (exponent >> i) & 1);
+        printf("%lld", (exponent >> i) & 1);
     }
     printf("\n");
 }
