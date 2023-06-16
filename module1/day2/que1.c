@@ -2,15 +2,15 @@
 
 void printExponent(double x) {
     unsigned long long *ptr = (unsigned long long *)&x;
-    unsigned long long exponent = (*ptr >> 52) & 0x7FF;
+    unsigned long long exponentMask = 0x7FF0000000000000ULL;
+    unsigned long long exponent = (*ptr & exponentMask) >> 52;
 
-    // Print hexadecimal format
-    printf("Hexadecimal: 0x%llX\n", exponent);
-
-    // Print binary format
-    printf("Binary: 0b");
-    for (int i = 10; i >= 0; i--) {
-        printf("%d", (exponent >> i) & 1);
+    printf("Exponent in hexadecimal: 0x%llX\n", exponent);
+    
+    printf("Exponent in binary: 0b");
+    for (int i = 11; i >= 0; i--) {
+        unsigned long long bit = (exponent >> i) & 1;
+        printf("%llu", bit);
     }
     printf("\n");
 }
@@ -18,5 +18,6 @@ void printExponent(double x) {
 int main() {
     double x = 0.7;
     printExponent(x);
+
     return 0;
 }
