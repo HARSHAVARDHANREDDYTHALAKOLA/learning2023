@@ -1,15 +1,26 @@
 #include <stdio.h>
 
-int main() {
-    int arr[] = {10, 20, 30, 40, 50};
-    int size = sizeof(arr) / sizeof(arr[0]);
+void summation(int arr[], int length) {
+    int sum = 0,i;
+    for ( i = 0; i < length; i++) {
+        sum = sum + arr[i];
+        i++;
+    }
+    printf("Sum is: %d\n", sum);
+}
 
-    int sum = 0;
-    for (int i = 0; i < size; i += 2) {
-        sum += arr[i];
+int main() {
+    int length;
+    printf("Enter the length of the array: ");
+    scanf("%d", &length);
+
+    int arr[length],i;
+    printf("Enter the array elements:\n");
+    for ( i = 0; i < length; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    printf("Sum of alternate elements: %d\n", sum);
+    summation(arr, length);
 
     return 0;
 }
